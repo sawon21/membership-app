@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+     <style>
+
+     b{
+       color: red;
+     }
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(83,144,217,1) 13%, rgba(2,219,219,1) 54%, rgba(0,255,183,1) 86%);
+}
+::selection{
+  color: #fff;
+  background: #d43f8d;
+}
+.container{
+  width: 330px;
+  background: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 30px 35px 10px 35px;
+}
+.container header{
+  font-size: 35px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  color: #0096FF;
+}
+.container h1 {
+  color: #E97451;
+}
+.container .form-outer{
+  width: 100%;
+  overflow: hidden;
+}
+.container .form-outer form{
+  display: flex;
+  width: 400%;
+}
+.form-outer form .page{
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
+}
+.form-outer form .page .title{
+  text-align: left;
+  font-size: 25px;
+  font-weight: 500;
+}
+.form-outer form .page .field{
+  width: 330px;
+  height: 45px;
+  margin: 45px 0;
+  display: flex;
+  position: relative;
+}
+form .page .field .label{
+  position: absolute;
+  top: -30px;
+  font-weight: 500;
+}
+form .page .field input{
+  height: 100%;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding-left: 15px;
+  font-size: 18px;
+}
+form .page .field select{
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+form .page .field button{
+  width: 100%;
+  height: calc(100% + 5px);
+  border: none;
+  background: #03045E;
+  margin-top: -20px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+form .page .field button:hover{
+  background: #00B4D8;
+}
+form .page .btns button{
+  margin-top: -20px!important;
+}
+form .page .btns button.prev{
+  margin-right: 3px;
+  font-size: 17px;
+}
+form .page .btns button.next{
+  margin-left: 3px;
+}
+.container .progress-bar{
+  display: flex;
+  margin: 30px 0;
+  user-select: none;
+}
+.container .progress-bar .step{
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.container .progress-bar .step p{
+  font-weight: 500;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 8px;
+}
+.progress-bar .step .bullet{
+  height: 25px;
+  width: 25px;
+  border: 2px solid #000;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+.progress-bar .step .bullet.active{
+  border-color: #d43f8d;
+  background: #d43f8d;
+}
+.progress-bar .step .bullet span{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.progress-bar .step .bullet.active span{
+  display: none;
+}
+.progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after{
+  position: absolute;
+  content: '';
+  bottom: 11px;
+  right: -51px;
+  height: 3px;
+  width: 44px;
+  background: #262626;
+}
+.progress-bar .step .bullet.active:after{
+  background: #d43f8d;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after{
+  display: none;
+}
+.progress-bar .step p.active{
+  color: #d43f8d;
+  transition: 0.2s linear;
+}
+.progress-bar .step .check{
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.progress-bar .step .check.active{
+  display: block;
+  color: #fff;
+}       
+} 
+     </style>
+    
+     
+      <meta charset="utf-8">
+      <!-- Primary Meta Tags -->
+<title> Chess Club Membership Form | DGCC</title>
+
+<!-- Meta Tags Generated with https://metatags.io -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      
+   </head>
+   <body>
+      <div class="container">
+         <header> <pre>͎M͎͎e͎͎m͎͎b͎͎e͎͎r͎͎s͎͎h͎͎i͎͎p͎ ͎F͎͎o͎͎r͎͎m͎ </pre></header>
+<h1>◑ Chess Club ◑</h1>
+         <div class="progress-bar">
+            <div class="step">
+               <p>
+                  Personal
+               </p>
+               <div class="bullet">
+                  <span>1</span>
+               </div>
+               <div class="check fas fa-check"></div>
+            </div>
+            <div class="step">
+               <p>
+                  Contact
+               </p>
+               <div class="bullet">
+                  <span>2</span>
+               </div>
+               <div class="check fas fa-check"></div>
+            </div>
+            <div class="step">
+               <p>
+                  Basic
+               </p>
+               <div class="bullet">
+                  <span>3</span>
+               </div>
+               <div class="check fas fa-check"></div>
+            </div>
+            <div class="step">
+               <p>
+                  College 
+               </p>
+               <div class="bullet">
+                  <span>4</span>
+               </div>
+               <div class="check fas fa-check"></div>
+            </div>
+         </div>
+         <div class="form-outer">
+            <form action="https://formspree.io/f/xpzvzyor" method="POST">
+               <div class="page slide-page">
+                 <input type="hidden" name="Membership Form " id="MEMBERSHIP FORM" value="CHESS CLUB MEMBERSHIP" />
+                  <div class="title">
+        <u>Personal Info:</u>    
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Full Name : <b>*</b>
+                     </div>
+                     <input type="text" name="Full Name " required>
+                  </div>
+             <div class="field">
+                     <div class="label">
+                        Date of Birth  <b>*</b>
+                     </div>
+                     <input type="tel" name="Date of Birth " required placeholder="DD-MM-YYYY">
+                  </div>  
+           <div class="field">
+         <div class="label">
+Gender <b>*</b>
+          </div>
+     <select name="Gender " required>
+     <option value="">Select</option>
+          <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+                </select>
+                </div>
+                     <div class="field">
+         <div class="label">
+Blood Group <b>*</b>
+          </div>
+     <select name="Blood Group " required>
+     <option value="">Select</option>
+          <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+           <option>B-</option>
+           <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+        </select>
+                </div>      
+                  <div class="field">
+                     <button class="firstNext next">Next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="title">
+          <u>Contact Info:</u>
+                  </div>
+                    <div class="field">
+                     <div class="label">Present 
+                         Address : <b>*</b>
+                     </div>
+                     <input type="text" name="Present Address " required>
+                  </div>
+           <div class="field">
+                     <div class="label">Permanent
+                         Address : <b>*</b>
+                     </div>
+                     <input type="text" name="Permanent Address " required>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Email Address :
+                     </div>
+                     <input type="email" name="Email Address " >
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Phone Number : <b>*</b>
+                     </div>
+                     <input type="tel" name="Phone Number " required placeholder="+880">
+                  </div>
+                  <div class="field btns">
+                     <button class="prev-1 prev">Previous</button>
+                     <button class="next-1 next">Next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="title">
+      <u>Basic Info:</u>
+                  </div>
+                      
+                   <div class="field">
+                     <div class="label">
+                        Father's Name : <b>*</b>
+                     </div>
+                     <input type="text" name="Father's Name " required>
+                  </div>
+        <div class="field">
+                     <div class="label">
+                        Mother's Name : <b>*</b>
+                     </div>
+                     <input type="text" name="Mother's Name " required>
+                  </div>
+  <div class="field">
+                     <div class="label">Guardian Phone Number : <b>*</b>
+                     </div>
+                     <input type="number" name="Guardian Phone Number " required placeholder="+880">
+                  </div>
+                         <div class="field">
+                     <div class="label">
+                        Religion  <b>*</b>
+                     </div>
+                     <select name="Religion " required>
+                       <option value="">Select</option>
+                        <option name="islam" value="Islam">Islam</option>
+                        <option name="Hinduism" value="Hinduism">Hinduism</option>
+              <option name="Christianity" value="Christianity">Christianity</option>
+                                      <option name="Buddhism " value="Buddhism ">Buddhism</option>
+                        <option name="other" value="other">Other</option>
+                     </select>
+                  </div>
+       
+                  <div class="field btns">
+                     <button class="prev-2 prev">Previous</button>
+                     <button class="next-2 next">Next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="title">
+         <u>Student Details:</u>
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Roll No : <b>*</b>
+                     </div>
+                     <input type="number" name="Roll No " required>
+                  </div>
+          <div class="field">
+         <div class="label">
+                        Department <b>*</b>
+                     </div>
+                   <select name="Department " required>
+  <option value="">Select</option>
+  <option value="Science">Science</option>
+  <option value="Humanities">Humanities </option>
+  <option value="Commerce">Commerce</option>
+</select>
+</div>
+                  
+        <div class="field">
+         <div class="label">
+                        Session <b>*</b>
+                     </div>
+                   <select name="Session " required>
+  <option value="">Select</option>
+  <option value="HSC-2023">2021-2022 (HSC-2023)</option>
+  <option value="HSC-2024">2022-2023 (HSC-2024)</option>
+  <option value="HSC-2025">2023-2024 (HSC-2025)</option>
+  <option value="HSC-2026">2024-2025 (HSC-2026)</option>
+  <option value="HSC-2027">2025-2026 (HSC-2027)</option>
+</select> </div>
+  <div class="field">
+          <div class="label">
+                     Ex School (SSC) : <b>*</b>
+                     </div>
+                     <input type="text" name="Ex School " required>
+                
+                  </div>                 
+                  <div class="field btns">
+                     <button class="prev-3 prev">Previous</button>
+                     <button class="submit">Submit</button>
+                  </div>
+               </div>
+            </form>
+
+         </div>
+      </div>
+      <script>
+
+const slidePage = document.querySelector(".slide-page");
+const nextBtnFirst = document.querySelector(".firstNext");
+const prevBtnSec = document.querySelector(".prev-1");
+const nextBtnSec = document.querySelector(".next-1");
+const prevBtnThird = document.querySelector(".prev-2");
+const nextBtnThird = document.querySelector(".next-2");
+const prevBtnFourth = document.querySelector(".prev-3");
+const submitBtn = document.querySelector(".submit");
+const progressText = document.querySelectorAll(".step p");
+const progressCheck = document.querySelectorAll(".step .check");
+const bullet = document.querySelectorAll(".step .bullet");
+let current = 1;
+
+function validateInputs(current) {
+  const inputs = document.querySelectorAll(`.page:nth-child(${current}) input[required], .page:nth-child(${current}) select[required]`);
+  for (const input of inputs) {
+    const value = input.value.trim();
+    if (value === "") {
+      showErrorMessage(input, "Please fill in all required fields.");
+      return false;
+    } else if (input.type === "email" && !validateEmail(value)) {
+      showErrorMessage(input, "Please enter a valid email address.");
+      return false;
+    } else if (input.name === "gender" && value === "Select") {
+      showErrorMessage(input, "Please select a gender.");
+      return false;
+    } else if (input.name === "religion" && value === "Select") {
+      showErrorMessage(input, "Please select a religion.");
+      return false;
+    } else if (input.name === "password" && !validatePassword(value)) {
+      showErrorMessage(input, "Password must be at least 8 characters and include uppercase, lowercase, number, and special character.");
+      return false;
+    } else {
+      hideErrorMessage(input);
+    }
+  }
+  return true;
+}
+
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+function validatePassword(password) {
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  return passwordRegex.test(password);
+}
+
+function showErrorMessage(input, message) {
+  let errorMessageSpan = input.parentElement.querySelector(".error-message");
+  if (!errorMessageSpan) {
+    errorMessageSpan = document.createElement("span");
+    errorMessageSpan.className = "error-message";
+    errorMessageSpan.textContent = message;
+    input.parentElement.appendChild(errorMessageSpan);
+  }
+}
+
+function hideErrorMessage(input) {
+  const errorMessageSpan = input.parentElement.querySelector(".error-message");
+  if (errorMessageSpan) {
+    errorMessageSpan.remove();
+  }
+}
+
+nextBtnFirst.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (validateInputs(current)) {
+    slidePage.style.marginLeft = "-25%";
+    bullet[current - 1].classList.add("active");
+    progressCheck[current - 1].classList.add("active");
+    progressText[current - 1].classList.add("active");
+    current += 1;
+  }
+});
+
+nextBtnSec.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (validateInputs(current)) {
+    slidePage.style.marginLeft = "-50%";
+    bullet[current - 1].classList.add("active");
+    progressCheck[current - 1].classList.add("active");
+    progressText[current - 1].classList.add("active");
+    current += 1;
+  }
+});
+
+nextBtnThird.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (validateInputs(current)) {
+    slidePage.style.marginLeft = "-75%";
+    bullet[current - 1].classList.add("active");
+    progressCheck[current - 1].classList.add("active");
+    progressText[current - 1].classList.add("active");
+    current += 1;
+  }
+});
+
+prevBtnSec.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (validateInputs(current - 1)) {
+    slidePage.style.marginLeft = "0%";
+    bullet[current - 2].classList.remove("active");
+    progressCheck[current - 2].classList.remove("active");
+    progressText[current - 2].classList.remove("active");
+    current -= 1;
+  }
+});
+
+prevBtnThird.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (validateInputs(current - 1)) {
+    slidePage.style.marginLeft = "-25%";
+    bullet[current - 2].classList.remove("active");
+    progressCheck[current - 2].classList.remove("active");
+    progressText[current - 2].classList.remove("active");
+    current -= 1;
+  }
+});
+
+prevBtnFourth.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (validateInputs(current - 1)) {
+    slidePage.style.marginLeft = "-50%";
+    bullet[current - 2].classList.remove("active");
+    progressCheck[current - 2].classList.remove("active");
+    progressText[current - 2].classList.remove("active");
+    current -= 1;
+  }
+});
+
+submitBtn.addEventListener("click", function () {
+  if (validateInputs(current)) {
+    bullet[current - 1].classList.add("active");
+    progressCheck[current - 1].classList.add("active");
+    progressText[current - 1].classList.add("active");
+    current += 1;
+    setTimeout(function () {
+      
+    }, 800);
+  }
+});
+
+
+      </script>
+      <script>
+  function displayFileName(input) {
+    const fileName = input.files[0].name;
+    document.getElementById('file-name').innerText = fileName;
+  }
+</script>
+
+   </body>
+</html>
