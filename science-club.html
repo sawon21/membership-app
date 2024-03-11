@@ -252,7 +252,7 @@ form .page .btns button.next{
             </div>
          </div>
          <div class="form-outer">
-            <form action="https://script.google.com/macros/s/AKfycbxxGMnR30Q1TR5gOrEm3zJoWGqcY5acw5XigZ-7VdAG-Cwma12RQzvehydMPIpomeQEYQ/exec" method="POST">
+           <form id="form" class="container m-4 pl-4" method="POST">
                <div class="page slide-page">
                  <input type="hidden" name="Membership Form " id="MEMBERSHIP FORM" value="SCIENCE CLUB MEMBERSHIP" />
                   <div class="title">
@@ -578,6 +578,20 @@ submitBtn.addEventListener("click", function () {
     const fileName = input.files[0].name;
     document.getElementById('file-name').innerText = fileName;
   }
+   var formDataString = keyValuePairs.join("&");
+
+        // Send a POST request to your Google Apps Script
+        fetch(
+          "https://script.google.com/macros/s/AKfycbxxGMnR30Q1TR5gOrEm3zJoWGqcY5acw5XigZ-7VdAG-Cwma12RQzvehydMPIpomeQEYQ/execv",
+          {
+            redirect: "follow",
+            method: "POST",
+            body: formDataString,
+            headers: {
+              "Content-Type": "text/plain;charset=utf-8",
+            },
+          }
+        )
 </script>
 
    </body>
